@@ -41,7 +41,6 @@ var todoList = {
   },
 
   toggleAll: function() {
-    debugger;
     var totalTodos = this.todos.length;
     var completedTodos = 0;
 
@@ -67,16 +66,12 @@ var todoList = {
   }
 };
 
-
 var handlers = {
     displayTodos: function() {
       todoList.displayTodos();
     },
 
-    toggleAll: function() {
-      todoList.toggleAll();
-    },
-     addTodo: function() {
+    addTodo: function() {
       var addTodoTextInput = document.getElementById('addTodoTextInput');
       todoList.addTodo(addTodoTextInput.value);
       addTodoTextInput.value = '';
@@ -88,5 +83,47 @@ var handlers = {
       todoList.changeTodo(changeTodoPositionInput.valueAsNumber, changeTodoTextInput.value);
       changeTodoPositionInput.value='';
       changeTodoTextInput.value = '';
-    }
+    },
+
+    deleteTodo: function() {
+      var deleteTodoPositionInput = document.getElementById('deleteTodoPositionInput');
+      todoList.deleteTodo(deleteTodoPositionInput.valueAsNumber);
+      deleteTodoPositionInput.value= "";
+    },
+
+    toggleCompleted: function() {
+      var toggleCompletedPositionInput = document.getElementById('toggleCompletedPositionInput');
+      todoList.toggleCompleted(toggleCompletedPositionInput.valueAsNumber);
+      toggleCompletedPositionInput.value= "";
+    },
+
+    toggleAll: function() {
+      todoList.toggleAll();
+    },
+
+
   };
+
+    var view = {
+      displayTodos: function() {
+        var todosUl = document.querySelector('ul');
+        todosUl.innerHTML = '';
+        for (var i = 0; i < todoList.todos.length; i++) {
+          var todoLi = document.createElement('li');
+          var todo = todoList.todos[i];
+          var todoTextWithCompletion = '';
+
+          if (todo.completed === true) {
+            todoTextWithCompletion = '(x)' + todo.todoText;
+          } else {
+            todoTextWithCompletion = '()' + todo.todoText;
+          }
+
+
+          todoLi.textContent = todoList.todos[i].todoText;
+          todosUl.appendChild(todoLi);
+        }
+      }
+    };
+
+
