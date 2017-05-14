@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
-
   <head>
-    <link rel="stylesheet" href="style.css">
+    <title>Practical Todos</title>
+    <link id="favicon" rel="icon" href="https://hyperdev.com/favicon.ico" type="image/x-icon">
   </head>
-
   <body>
     <h1>Todo List</h1>
+
     <div>
-      <button onclick = "handlers.toggleAll()">Toggle All</button>
+      <button onclick="handlers.toggleAll()">Toggle All</button>
     </div>
 
     <div>
-      <button onclick= "handlers.addTodo()">Add</button>
+      <button onclick="handlers.addTodo()">Add</button>
       <input id="addTodoTextInput" type="text">
     </div>
 
@@ -23,20 +23,12 @@
     </div>
 
     <div>
-      <button onclick="handlers.deleteTodo()">Delete</button>
-      <input id="deleteTodoPositionInput" type="number">
-    </div>
-
-    <div>
-      <button onclick= "handlers.toggleCompleted()">Toggle Completed</button>
+      <button onclick="handlers.toggleCompleted()">Toggle Completed</button>
       <input id="toggleCompletedPositionInput" type="number">
     </div>
 
     <ul>
-
     </ul>
-
-    <script src="script.js"></script>
+    <script src="/client.js"></script>
   </body>
-
 </html>
